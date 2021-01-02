@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Michael Baird</title>
+    <link>https://mbaird.github.io/posts/</link>
+    <description>Recent content in Posts on Michael Baird</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Thu, 31 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://mbaird.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Test Post</title>
+      <link>https://mbaird.github.io/posts/my-first-post/</link>
+      <pubDate>Thu, 31 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mbaird.github.io/posts/my-first-post/</guid>
+      <description>Perhaps an attic shall I seek. Wine only turns to alcohol if you let it sit. Sister&amp;rsquo;s my new mother, Mother. And is it just me or is she looking hotter?
+One of the guys told me to take my head out of my BOTTOM and get back to work…my BOTTOM! He&amp;rsquo;s going to be all right. Popcorn shrimp… with club sauce. I&amp;rsquo;m an ideas man, Michael. I think I proved that with &amp;ldquo;Fuck Mountain.</description>
+    </item>
+    
+  </channel>
+</rss>
