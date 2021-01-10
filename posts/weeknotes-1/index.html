@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8">
+    <title>Weeknotes 1 | Michael Baird</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    
+
+    
+    
+    
+
+    <link href="https://mbaird.github.io/css/main.min.css" rel="stylesheet" />
+    <link rel="canonical" href="https://mbaird.github.io/posts/weeknotes-1/">
+  </head>
+  <body class="text-gray-900">
+    <header>
+      <div class="max-w-7xl mx-auto p-6 md:p-10">
+        <div class="text-lg font-semibold">
+          <a href="https://mbaird.github.io/">Michael Baird</a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="max-w-7xl mx-auto p-6 md:p-10">
+<article class="max-w-2xl post">
+  <header>
+    <h1 class="text-3xl font-bold mb-3">Weeknotes 1</h1>
+    
+    <time datetime="2021-01-10T19:22:40Z"
+      class="text-gray-400 mb-5 inline-block">
+      January 10, 2021
+    </time>
+    
+  </header>
+
+  <ul>
+<li>
+<p>I&rsquo;ve been keen to try writing weeknotes for a couple of reasons: mostly as a way to improve my written communication, but I also think I&rsquo;ll enjoy a regular nudge to reflect on each week as they happen.</p>
+</li>
+<li>
+<p>Slack weren&rsquo;t the only ones with <a href="https://status.slack.com/2021-01/9ecc1bc75347b6d1">website problems</a> this week after a late-evening SMS told me our website at work was completely down. Initial inspection showed that our tiny Heroku set up of just 2 small dynos had been overwhelmed by traffic. On examining the logs, we deduced that a well-timed marketing campaign designed to coincide with the government lockdown announcement at 8pm was the culprit. After a post mortem, we spent some time looking into ways to scale our Rails application more efficiently on Heroku. We found Nate Berkopec&rsquo;s <a href="https://www.youtube.com/watch?v=itbExaPqNAE">Your App Server Config is Wrong</a> from RailsConf 2017 to be an excellent dive into server configuration. We&rsquo;re now running Performance dynos, meaning our application is much happier and our bank account slightly lighter.</p>
+</li>
+<li>
+<p>I wrote a small script in Go using <a href="https://phantomjs.org">PhantomJS</a> to periodically scrape a few online retailers for Xbox Series X stock. Last week this paid off, and I can now enjoy the customary testing of every game I own to see how they now look and feel on next-gen hardware. I&rsquo;ve been immensely enjoying the nostalgia-filled <a href="https://marketplace.xbox.com/en-gb/Product/The-Orange-Box/66acd000-77fe-1000-9115-d8024541080">The Orange Box</a> once again, after realising Half Life 2 came out more than 16 years (or roughly <em>half my life</em>) ago. Eek!</p>
+</li>
+<li>
+<p>I spent some time this weekend <a href="https://www.gov.uk/guidance/protect-domains-that-dont-send-email">protecting domains that don&rsquo;t send email</a>, ensuring the handful of domains I have lying dormant don&rsquo;t cause any security headaches. My domain registrar (<a href="http://gandi.net">Gandi</a>) provides a useful templating feature which allowed me to quickly apply a configuration to all my domains &amp; configure any new registrations or transfers with secure defaults. Gandi doesn&rsquo;t seem to support null MX records, to my zone file looks like this.</p>
+</li>
+</ul>
+<pre><code>*._domainkey 10800 IN TXT &quot;v=DKIM1; p=&quot;
+@ 10800 IN TXT &quot;v=spf1 -all&quot;
+_dmarc 10800 IN TXT &quot;v=DMARC1;p=reject;sp=reject;adkim=s;aspf=s;fo=1;rua=mailto:dmarc@michaelbaird.co.uk&quot;
+</code></pre><ul>
+<li>
+<p>Having really enjoyed Netflix&rsquo;s <a href="https://www.imdb.com/title/tt3810760/">Minimalism: A Documentary About the Important Things</a>, I had been eagerly anticipating the new years day release of their follow up movie, <a href="https://www.imdb.com/title/tt13583144/?ref_=nm_knf_i2">Less is Now</a> only to be bitterly disappointed. It&rsquo;s mostly just a repackaging of their first documentary, with a more in-depth look into their upbringing and lots of individual testimony thrown in. I&rsquo;d still recommend giving it a watch, but only as a very slightly improved alternative to their first documentary.</p>
+</li>
+<li>
+<p>The pine needles are everywhere.</p>
+</li>
+</ul>
+
+</article>
+
+      </div>
+    </main>
+    </main>
+  </body>
+  </body>
+</html>

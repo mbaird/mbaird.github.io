@@ -6,15 +6,15 @@
     <description>Recent content in Posts on Michael Baird</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
-    <lastBuildDate>Thu, 31 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://mbaird.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Jan 2021 19:22:40 +0000</lastBuildDate><atom:link href="https://mbaird.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Test Post</title>
-      <link>https://mbaird.github.io/posts/my-first-post/</link>
-      <pubDate>Thu, 31 Dec 2020 00:00:00 +0000</pubDate>
+      <title>Weeknotes 1</title>
+      <link>https://mbaird.github.io/posts/weeknotes-1/</link>
+      <pubDate>Sun, 10 Jan 2021 19:22:40 +0000</pubDate>
       
-      <guid>https://mbaird.github.io/posts/my-first-post/</guid>
-      <description>Perhaps an attic shall I seek. Wine only turns to alcohol if you let it sit. Sister&amp;rsquo;s my new mother, Mother. And is it just me or is she looking hotter?
-One of the guys told me to take my head out of my BOTTOM and get back to work…my BOTTOM! He&amp;rsquo;s going to be all right. Popcorn shrimp… with club sauce. I&amp;rsquo;m an ideas man, Michael. I think I proved that with &amp;ldquo;Fuck Mountain.</description>
+      <guid>https://mbaird.github.io/posts/weeknotes-1/</guid>
+      <description>I&amp;rsquo;ve been keen to try writing weeknotes for a couple of reasons: mostly as a way to improve my written communication, but I also think I&amp;rsquo;ll enjoy a regular nudge to reflect on each week as they happen.
+  Slack weren&amp;rsquo;t the only ones with website problems this week after a late-evening SMS told me our website at work was completely down. Initial inspection showed that our tiny Heroku set up of just 2 small dynos had been overwhelmed by traffic.</description>
     </item>
     
   </channel>
