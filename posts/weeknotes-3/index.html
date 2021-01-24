@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8">
+    <title>Weeknotes 3 | Michael Baird</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    
+
+    
+    
+    
+
+    <link href="https://mbaird.github.io/css/main.min.css" rel="stylesheet" />
+    <link rel="canonical" href="https://mbaird.github.io/posts/weeknotes-3/">
+  </head>
+  <body class="text-gray-900">
+    <header>
+      <div class="max-w-6xl mx-auto py-6 px-8 md:p-10">
+        <div class="text-lg font-semibold">
+          <a href="https://mbaird.github.io/">Michael Baird</a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="max-w-6xl mx-auto py-6 px-8 md:p-10">
+<article class="max-w-2xl post">
+  <header>
+    <h1 class="text-3xl font-bold mb-3">Weeknotes 3</h1>
+    
+    <time datetime="2021-01-24T14:20:54Z"
+      class="text-gray-400 mb-5 inline-block">
+      January 24, 2021
+    </time>
+    
+  </header>
+
+  <ul>
+<li>
+<p>The lack of genuine next-gen titles for the Series X has kept me playing Apex Legends (albeit now at an impressive 4K 60fps), bringing my total time spent playing over the last two years to just over 500 hours. I put that down to the terrific job Respawn do of making the game feel fresh and new with regular <a href="https://www.youtube.com/watch?v=zRMgmRTJFmE">season updates</a> without ruining the core of the game. Thankfully <a href="https://www.theguardian.com/science/2019/aug/21/practice-does-not-always-make-perfect-violinists-10000-hour-rule">10,000 hours is a myth</a>, so I might be well on my way to mastery.</p>
+</li>
+<li>
+<p>My brief foray into Go proved to be lots of fun (mostly due to the excellent <a href="https://gobyexample.com">Go By Example</a>), so I was on the lookout similar language introductions when I found <a href="https://github.com/rust-lang/rustlings">rustlings</a>.</p>
+<p>Rustlings is a guided set of rust exercises packaged with command-line tools for watching, compiling and providing hints as you work. It&rsquo;s been a joy to work through the exercises without having to leave my terminal. I&rsquo;ve been incredibly impressed by how friendly the error messages are:</p>
+</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-rust" data-lang="rust"><span class="n">error</span><span class="p">[</span><span class="n">E0596</span><span class="p">]</span>: <span class="nc">cannot</span><span class="w"> </span><span class="n">borrow</span><span class="w"> </span><span class="o">*</span><span class="n">vec</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">mutable</span><span class="p">,</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">behind</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">reference</span><span class="w">
+</span><span class="w">  </span><span class="o">-</span>-&gt; <span class="nc">exercises</span><span class="o">/</span><span class="n">move_semantics</span><span class="o">/</span><span class="n">move_semantics2</span><span class="p">.</span><span class="n">rs</span>:<span class="mi">21</span>:<span class="mi">5</span><span class="w">
+</span><span class="w">   </span><span class="o">|</span><span class="w">
+</span><span class="w"></span><span class="mi">18</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">fn</span> <span class="nf">fill_vec</span><span class="p">(</span><span class="n">vec</span>: <span class="kp">&amp;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">   </span><span class="o">|</span><span class="w">                  </span><span class="o">---------</span><span class="w"> </span><span class="n">help</span>: <span class="nc">consider</span><span class="w"> </span><span class="n">changing</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">mutable</span><span class="w"> </span><span class="n">reference</span>: <span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="w">
+</span><span class="w"></span><span class="p">...</span><span class="w">
+</span><span class="w"></span><span class="mi">21</span><span class="w"> </span><span class="o">|</span><span class="w">     </span><span class="n">vec</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">66</span><span class="p">);</span><span class="w">
+</span><span class="w">   </span><span class="o">|</span><span class="w">     </span><span class="o">^^^</span><span class="w"> </span><span class="n">vec</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">reference</span><span class="p">,</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">refers</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">cannot</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">borrowed</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">mutable</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="n">error</span>: <span class="nc">aborting</span><span class="w"> </span><span class="n">due</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">previous</span><span class="w"> </span><span class="n">errors</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="n">For</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">error</span><span class="p">,</span><span class="w"> </span><span class="kr">try</span><span class="w"> </span><span class="n">rustc</span><span class="w"> </span><span class="o">--</span><span class="n">explain</span><span class="w"> </span><span class="n">E0596</span><span class="p">.</span><span class="w">
+</span></code></pre></div><p>Running <code>rustc --explain E0596</code> tells me:</p>
+<pre><code>This error occurs because you tried to mutably borrow a non-mutable variable.
+
+Erroneous code example:
+
+let x = 1;
+let y = &amp;mut x; // error: cannot borrow mutably
+
+In here, `x` isn't mutable, so when we try to mutably borrow it in `y`, it
+fails. To fix this error, you need to make `x` mutable:
+
+let mut x = 1;
+let y = &amp;mut x; // ok!
+</code></pre><ul>
+<li>
+<p>The second season of &lsquo;Blown Away&rsquo; is new to Netflix, making for excellent weekend binge-watching. The glass blowing process is pretty fascinating &ndash; it&rsquo;s just so <em>primitive</em>. The style is typical over-the-top weekly elimination, but it&rsquo;s tolerable.</p>
+</li>
+<li>
+<p>There has been no response from Apple on <a href="/posts/weeknotes-2">my bug report</a> yet, but it&rsquo;s still showing as &lsquo;Open&rsquo;, which I guess is something.🤞🏼</p>
+</li>
+</ul>
+
+</article>
+
+      </div>
+    </main>
+    </main>
+  </body>
+  </body>
+</html>
