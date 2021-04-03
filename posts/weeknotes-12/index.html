@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8">
+    <title>Weeknotes 12 | Michael Baird</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    
+
+    
+    
+    
+
+    <link href="https://mbaird.github.io/css/main.min.f2769e2b2bc6fe6bce52bd4a974272901fe7338217b786403c1e5e60e7a615bc.css" rel="stylesheet" />
+    <link rel="canonical" href="https://mbaird.github.io/posts/weeknotes-12/">
+  </head>
+  <body class="text-gray-900">
+    <header>
+      <div class="max-w-6xl mx-auto py-6 px-8 md:p-10">
+        <div class="text-lg font-semibold">
+          <a href="https://mbaird.github.io/">Michael Baird</a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="max-w-6xl mx-auto py-6 px-8 md:p-10">
+<article class="max-w-3xl post">
+  <header>
+    <h1 class="text-3xl font-bold mb-3">Weeknotes 12</h1>
+    
+    <time datetime="2021-03-28T15:20:39&#43;01:00"
+      class="text-gray-400 mb-5 inline-block">
+      March 28, 2021
+    </time>
+    
+  </header>
+
+  <ul>
+<li>
+<p>I was caught off guard on a Zoom call when I leant on the armrest of my chair, and it promptly snapped and fell away with a loud clatter. On inspection, the bolt that tightens as part of the height adjustment mechanism had snapped. I cannot find a replacement part for <a href="https://simplyrenew.co.uk/eshop/yoke-bearing-kit">less than £65</a>.</p>
+</li>
+<li>
+<p>I paired this week on a feature requiring some non-trivial database queries in our Rails monolith. To calculate some statistics, we needed to filter rows based on a value in the last row for the same user (not necessarily the previous row in the table). As we use PostgreSQL, this is a perfect candidate for a <a href="https://www.postgresql.org/docs/current/tutorial-window.html">window function</a>, specifically <a href="https://www.postgresql.org/docs/current/functions-window.html">LAG</a>, in this case.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span>
+  <span class="o">*</span><span class="p">,</span>
+  <span class="n">lag</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="n">over</span> <span class="p">(</span><span class="n">partition</span> <span class="k">by</span> <span class="n">user_id</span> <span class="k">order</span> <span class="k">by</span> <span class="n">created_at</span> <span class="k">asc</span><span class="p">)</span> <span class="k">as</span> <span class="n">value</span>
+<span class="k">from</span> <span class="n">events</span>
+</code></pre></div><p>Having not used window functions in ActiveRecord before and keen to avoid dropping down to SQL, it turns out simply using a custom <code>select</code> is sufficient and has the added benefit of easily being extracted into a scope.</p>
+<div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">scope</span> <span class="ss">:include_previous_value</span><span class="p">,</span> <span class="o">-&gt;</span> <span class="p">{</span>
+  <span class="nb">select</span><span class="p">(</span><span class="s1">&#39;*, lag(value) over (partition by user_id order by created_at asc) as value&#39;</span>
+<span class="p">}</span>
+</code></pre></div><p>Unfortunately, we can&rsquo;t use <code>lag(value)</code> in a <code>where</code> clause to filter on this value. To do this, we needed to write a small CTE. Luckily this turned out to be straightforward, especially when using the <a href="https://github.com/vlado/activerecord-cte"><code>activerecord-cte</code></a> gem. Our resulting scope now looked like this:</p>
+<div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">scope</span> <span class="ss">:include_previous_value</span><span class="p">,</span> <span class="o">-&gt;</span> <span class="p">{</span>
+  <span class="n">with</span><span class="p">(</span><span class="ss">cte</span><span class="p">:</span> <span class="s1">&#39;select *, lag(value) over (partition by user_id order by created_at asc) as value from events&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">from</span><span class="p">(</span><span class="s1">&#39;cte as events&#39;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div><p>Using a CTE without any <code>where</code> filters caused the query to run on the whole table, so we took a bit of a performance hit there. Fortunately, it&rsquo;s okay for our use case, but I&rsquo;m going to see if there&rsquo;s a way to improve performance cleanly, without caving to <a href="https://api.rubyonrails.org/v6.1.3/classes/ActiveRecord/Querying.html#method-i-find_by_sql"><code>find_by_sql</code></a> (although it would be <a href="https://programmingisterrible.com/post/139222674273/how-to-write-disposable-code-in-large-systems">easy to delete</a>).</p>
+</li>
+</ul>
+
+</article>
+
+      </div>
+    </main>
+    </main>
+  </body>
+  </body>
+</html>

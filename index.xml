@@ -6,7 +6,17 @@
     <description>Recent content on Michael Baird</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
-    <lastBuildDate>Sun, 21 Mar 2021 22:08:22 +0000</lastBuildDate><atom:link href="https://mbaird.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Mar 2021 15:20:39 +0100</lastBuildDate><atom:link href="https://mbaird.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Weeknotes 12</title>
+      <link>https://mbaird.github.io/posts/weeknotes-12/</link>
+      <pubDate>Sun, 28 Mar 2021 15:20:39 +0100</pubDate>
+      
+      <guid>https://mbaird.github.io/posts/weeknotes-12/</guid>
+      <description>I was caught off guard on a Zoom call when I leant on the armrest of my chair, and it promptly snapped and fell away with a loud clatter. On inspection, the bolt that tightens as part of the height adjustment mechanism had snapped. I cannot find a replacement part for less than £65.
+  I paired this week on a feature requiring some non-trivial database queries in our Rails monolith.</description>
+    </item>
+    
     <item>
       <title>Weeknotes 11</title>
       <link>https://mbaird.github.io/posts/weeknotes-11/</link>
